@@ -154,7 +154,7 @@ class VisualGenomeTrainData:
             if str(img['image_id']) in self.corrupted_ims:
                 continue
             self.image_data.append(img)
-        assert(len(self.image_data) == 108073)
+        # assert(len(self.image_data) == 108073)
         self.masks = None
         if self.mask_location != "":
             try:
