@@ -47,8 +47,9 @@ class VisualGenomeTrainData:
         self.register_dataset()
         try:
             statistics = self.get_statistics()
-        except:
-            pass
+        except Exception as e:
+            print(f"Error in getting statistics: {e}")
+            statistics = self.get_statistics(bbox_overlap=False)
         if self.bgnn:
             freq = statistics['fg_rel_count'] / statistics['fg_rel_count'].sum() 
             freq = freq.numpy()

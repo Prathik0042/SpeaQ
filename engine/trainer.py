@@ -58,7 +58,7 @@ class WandbWriter(EventWriter):
         """
         self._window_size = window_size
 
-        os.environ['WANDB_API_KEY'] = 'YOUR API KEY HERE'
+        os.environ['WANDB_API_KEY'] = 'e1d85c1f00d30ed6021828b15b08faca9fb46310'
         self._writer = wandb.init(
                 entity=cfg.WANDB.ENTITY,
                 project=cfg.WANDB.PROJECT,

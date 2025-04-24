@@ -120,7 +120,11 @@ class DetrDatasetMapper:
             dict: a format that builtin models in detectron2 accept
         """
         dataset_dict = copy.deepcopy(dataset_dict)
-        image = utils.read_image(dataset_dict["file_name"], format=self.img_format)
+        try:
+            image = utils.read_image(dataset_dict["file_name"], format=self.img_format)
+        except Exception as e:
+            print(f"Error loading image {dataset_dict['file_name']}: {e}")
+            return dataset_dict
         h, w, _ = image.shape
         if w != dataset_dict['width'] or h != dataset_dict['height']:
             dataset_dict['width'] = w
